@@ -16,8 +16,9 @@ st.subheader("Enter patient's details below")
 def run_query(query):
     st.write("Some wise words from Shakespeare:")
     query_job = client.query(query)
-    st.write("Some wise words from Shakespeare:")
     st.write(client)
+    st.write("Some wise words from Shakespeare:")
+    
     rows_raw = query_job.result()
     # Convert to list of dicts. Required for st.cache_data to hash the return value.
     rows = [dict(row) for row in rows_raw]
