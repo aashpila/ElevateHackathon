@@ -4,11 +4,11 @@ from google.cloud import bigquery
 st.title("Patient Registration")
 st.subheader("Enter patient's details below")
 
-# # Create API client.
-# credentials = service_account.Credentials.from_service_account_info(
-#     st.secrets["gcp_service_account"]
-# )
-# client = bigquery.Client(credentials=credentials)
+# Create API client.
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"]
+)
+client = bigquery.Client(credentials=credentials)
 
 # # Perform query.
 # # Uses st.cache_data to only rerun when the query changes or after 10 min.
