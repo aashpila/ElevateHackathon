@@ -9,8 +9,8 @@ credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]
 )
 client = bigquery.Client(credentials=credentials)
-st.write(type(client))
-st.write(client)
+# st.write(type(client))
+# st.write(client)
 st.subheader("Enter patient's details below")
 # Perform query.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
