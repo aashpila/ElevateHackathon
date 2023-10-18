@@ -12,9 +12,12 @@ client = bigquery.Client(credentials=credentials)
 st.subheader("Enter patient's details below")
 # Perform query.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
+# @st.cache_data(ttl=600)
 def run_query(query):
+    st.write("Some wise words from Shakespeare:")
     query_job = client.query(query)
+    st.write("Some wise words from Shakespeare:")
+    st.write(client)
     rows_raw = query_job.result()
     # Convert to list of dicts. Required for st.cache_data to hash the return value.
     rows = [dict(row) for row in rows_raw]
