@@ -1,6 +1,6 @@
 import streamlit as st
-# from google.oauth2 import service_account
-# from google.cloud import bigquery
+from google.oauth2 import service_account
+from google.cloud import bigquery
 st.title("Patient Registration")
 st.subheader("Enter patient's details below")
 
