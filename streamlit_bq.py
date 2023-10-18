@@ -24,7 +24,7 @@ def run_query(query):
     rows = [dict(row) for row in rows_raw]
     return rows
 
-rows = run_query("SELECT word FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
+rows = run_query("SELECT patient_name FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
 
 # Print results.
 st.write("Some wise words from Shakespeare:")
