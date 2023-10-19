@@ -35,6 +35,8 @@ with st.form("form1", clear_on_submit=True):
   drug_str_uom=str(drugstr)+" "+str(druguom)
   submit = st.form_submit_button("Submit Details", on_click=call_success_func)
 if submit:
+    st.write(patient_name)
+    st.write(medication)
     seq_id=st.session_state.seq_id
     patient_name = st.session_state.patient_name
     medication = st.session_state.medication
