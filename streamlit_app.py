@@ -27,7 +27,7 @@ with st.form("form1", clear_on_submit=True):
   contact = st.number_input('Enter contact number', min_value=1000000000, max_value=9999999999)
   ml_nonadhere_score = st.number_input("Enter Patients Non Adherence Score", min_value=0.0, max_value=1.0,format="%.2f")
   doctor = st.text_input("Enter prescriber full name")
-  medication_time = st.time_input('Enter medication time', value=None)
+  medication_time = st.time_input('Enter medication time', value=None).time()
   frequency = st.multiselect("Enter medication frequency",freqlist)
   interests = st.text_area("Enter patients interests")
   location = st.text_input("Enter patient's city")
