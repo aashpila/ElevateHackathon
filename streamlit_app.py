@@ -16,7 +16,7 @@ def call_success_func():
 def run_query():
     st.session_state["form_visible"]=False
     st.subheader("Patients Details")
-    job = client.query("SELECT * FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
+    job = client.query("SELECT * FROM `medadsquad.patient_reg_db.patient_info` LIMIT 100")
     df=job.to_dataframe()
     
     st.table(df)
@@ -32,7 +32,7 @@ if form_visible:
       patient_name = st.text_input("Enter patient full name")
       medication = st.text_input("Enter medication name")
       drugstr = st.slider("Enter medication strength", min_value = 1, max_value = 1000)
-      druguom = st.multiselect("Enter medication UOM",druguomlist)
+      druguom = st.selectbox("Enter medication UOM",druguomlist)
       contact = st.number_input('Enter contact number', min_value=1000000000, max_value=9999999999)
       ml_nonadhere_score = st.number_input("Enter Patients Non Adherence Score", min_value=0.0, max_value=1.0,format="%.2f")
       doctor = st.text_input("Enter prescriber full name")
