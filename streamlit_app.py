@@ -38,8 +38,9 @@ if submit:
     st.write(patient_name)
     st.write(medication)
     drug_str_uom=str(drugstr) +" "+str(druguom[0])
-    insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name , medication, dosage, doctor, interests)
-        VALUES ('{patient_name}', '{medication}', '{drug_str_uom}', '{doctor}', '{interests}')"""
+    insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name , medication, dosage, doctor, interests,location, ml_nonadhere_score)
+        VALUES ('{patient_name}', '{medication}', '{drug_str_uom}', '{doctor}', '{interests}','{location}',
+        '{ml_nonadhere_score}')"""
     
     client.query(insert_query)
         
