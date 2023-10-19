@@ -5,8 +5,7 @@ import datetime
 druguomlist=['ML','MG','MCG','UNIT/ML']
 freqlist=['Daily Once','Twice a day','Three times a day']
 
-st.title("Patient Registration")
-st.subheader("Enter patient's details below")
+
 CREDS = r'medadsquad-8740fa9fa089.json'
 client = bigquery.Client.from_service_account_json(json_credentials_path=CREDS)
 # job = client.query(query)
@@ -16,6 +15,7 @@ def call_success_func():
 
 def run_query():
     st.session_state["form_visible"]=False
+    st.subheader("Patients Details")
     job = client.query("SELECT * FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
     df=job.to_dataframe()
     
@@ -26,6 +26,8 @@ form_visible=st.session_state.get("form_visible",True)
 #CREATING OUR FORM FIELDS
 if form_visible:
     with st.form("form1", clear_on_submit=True):
+      st.title("Patient Registration")
+      st.subheader("Enter patient's details below")
       seq_id=st.number_input('Enter Patient ID', min_value=0, max_value=1000)
       patient_name = st.text_input("Enter patient full name")
       medication = st.text_input("Enter medication name")
