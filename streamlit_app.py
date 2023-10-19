@@ -52,7 +52,7 @@ if submit:
     # streak_value=st.session_state.streak_value
     drug_str_uom=str(drugstr)+" "+str(druguom)
     insert_query = f""" INSERT INTO 'medadsquad.patient_reg_db.patient_info' (patient_name ,medication ,dosage ,doctor ,interests ,location ,ml_nonadhere_score ,medication_time ,contact ,seq_id ,runstreak)
-    VALUES ('{patient_name}' ,'{medication}' ,'{drug_str_uom}' ,'{doctor}' ,'{interests}' ,'{location}' ,'{ml_nonadhere_score}' ,'{medication_time}' ,'{contact}' ,'{seq_id}' ,'{runstreak}' )"""
+    VALUES ('{patient_name}' ,'{medication}' ,'{drug_str_uom}' ,'{doctor}' ,'{interests}' ,'{location}' ,'{ml_nonadhere_score}' ,'{medication_time}' ,'{contact}' ,'{seq_id}' ,'{streak_value}' )"""
     client.query(insert_query)
     st.success("Form Submitted")
 
