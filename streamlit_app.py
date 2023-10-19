@@ -1,4 +1,6 @@
 import streamlit as st
+from google.oauth2 import service_account
+from google.cloud import bigquery
 druguomlist=['ML','MG','MCG','UNIT/ML']
 freqlist=['Daily Once','Twice a day','Three times a day']
 
