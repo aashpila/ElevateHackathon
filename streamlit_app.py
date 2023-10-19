@@ -10,9 +10,11 @@ CREDS = r'medadsquad-8740fa9fa089.json'
 client = bigquery.Client.from_service_account_json(json_credentials_path=CREDS)
 # job = client.query(query)
 table_name='medadsquad.patient_reg_db.patient_info'
+def call_success_func():
+    st.success("Patient Registration Successful!!")
 
 #CREATING OUR FORM FIELDS
-with st.form("form1", clear_on_submit=True):
+with st.form("form1", clear_on_submit=True, on_click=call_success_func():
   patient_name = st.text_input("Enter patient full name")
   medication = st.text_input("Enter medication name")
   drugstr = st.slider("Enter medication strength", min_value = 1, max_value = 1000)
@@ -33,4 +35,3 @@ with st.form("form1", clear_on_submit=True):
   VALUES ('{patient_name}', '{medication}', '{drug_str_uom}','{doctor}','{interests}','{location}','{ml_nonadhere_score}',
         '{medication_time}','{contact}','{streak_value}','{seq_id}')"""
   client.query(insert_query)
-  st.success("Patient Registraion Successful!!")
