@@ -16,7 +16,8 @@ def call_success_func():
 
 def run_query():
     job = client.query("SELECT patient_name FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
-    df=job.result().to_dataframe()
+    df=job.result()
+    st.write(type(df))
     st.table(df)
   
 
