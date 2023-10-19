@@ -14,7 +14,7 @@ def call_success_func():
     st.success("Patient Registration Successful!!")
 
 #CREATING OUR FORM FIELDS
-with st.form("form1", clear_on_submit=True, on_click=call_success_func():
+with st.form("form1", clear_on_submit=True, on_click=call_success_func())
   patient_name = st.text_input("Enter patient full name")
   medication = st.text_input("Enter medication name")
   drugstr = st.slider("Enter medication strength", min_value = 1, max_value = 1000)
