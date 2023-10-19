@@ -38,7 +38,7 @@ if submit:
     st.write(patient_name)
     st.write(medication)
     drug_str_uom=str(drugstr) +" "+str(druguom[0])
-    medication_time = medication_time.strftime('%Y-%m-%d %H:%M:%S')
+    medication_time = medication_time.strftime('%H:%M')
     insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name , medication, dosage, doctor, interests,location, ml_nonadhere_score,medication_time)
         VALUES ('{patient_name}', '{medication}', '{drug_str_uom}', '{doctor}', '{interests}','{location}',
         '{ml_nonadhere_score}', '{medication_time}')"""
