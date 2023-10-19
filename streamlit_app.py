@@ -47,7 +47,7 @@ if submit:
     st.write((medication_time_min))
 
     
-    medication_time = datetime.time(int(medication_time_hr),int(medication_time_min)).strftime('%H:%M')
+    medication_time = datetime.time(int(medication_time_hr),int(medication_time_min),0).strftime('%H:%M:%S')
     # medication_time=str(medication_time)
     # st.write(type(medication_time))
     insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name , medication, dosage, doctor, interests,location, ml_nonadhere_score,medication_time)
