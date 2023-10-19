@@ -31,7 +31,7 @@ if form_visible:
       seq_id=st.number_input('Enter Patient ID', min_value=0, max_value=1000)
       patient_name = st.text_input("Enter patient full name")
       medication = st.text_input("Enter medication name")
-      drugstr = st.slider("Enter medication strength", min_value = 1, max_value = 1000)
+      drugstr = st.text_input("Enter medication strength")
       druguom = st.selectbox("Enter medication UOM",druguomlist)
       contact = st.number_input('Enter contact number', min_value=1000000000, max_value=9999999999)
       ml_nonadhere_score = st.number_input("Enter Patients Non Adherence Score", min_value=0.0, max_value=1.0,format="%.2f")
