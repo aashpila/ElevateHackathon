@@ -1,6 +1,7 @@
 import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
+import os
 st.title("Patient Registration")
 st.subheader("Enter patient's details below")
 
@@ -16,6 +17,7 @@ st.subheader("Enter patient's details below")
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 # @st.cache_data(ttl=600)
 def run_query(query):
+    st.write(os.getcwd())
     # st.write("Some wise words from Shakespeare:")
     query_job = client.query(query)
     st.write(client)
