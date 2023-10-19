@@ -12,10 +12,6 @@ client = bigquery.Client.from_service_account_json(json_credentials_path=CREDS)
 # job = client.query(query)
 table_name='medadsquad.patient_reg_db.patient_info'
 def call_success_func():
-    
-    job=client.query("SELECT patient_name FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
-    for row in job.result():
-        st.write(row)
     st.success("Patient Registration Successful!!")
 
 #CREATING OUR FORM FIELDS
@@ -43,16 +39,14 @@ if submit:
     
     medication_time_hr=  str(medication_time).split(":")[0]
     medication_time_min=  str(medication_time).split(":")[1]
-    st.write((medication_time_hr))
-    st.write((medication_time_min))
 
     
     medication_time = datetime.time(int(medication_time_hr),int(medication_time_min),0).strftime('%H:%M:%S')
     # medication_time=str(medication_time)
     # st.write(type(medication_time))
-    insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name , medication, dosage, doctor, interests,location, ml_nonadhere_score,medication_time)
+    insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name , medication, dosage, doctor, interests,location, ml_nonadhere_score,medication_time,contact,seq_id, runstreak)
         VALUES ('{patient_name}', '{medication}', '{drug_str_uom}', '{doctor}', '{interests}','{location}',
-        '{ml_nonadhere_score}', '{medication_time}')"""
+        '{ml_nonadhere_score}', '{medication_time}','{contact}', '{seq_id}', '{streak_value}')"""
     
     client.query(insert_query)
         
