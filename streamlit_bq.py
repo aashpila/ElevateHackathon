@@ -18,6 +18,8 @@ st.subheader("Enter patient's details below")
 # @st.cache_data(ttl=600)
 def run_query(query):
     st.write(os.getcwd())
+    CREDS = r'medadsquad-8740fa9fa089.json'
+    client = bigquery.Client.from_service_account_json(json_credentials_path=CREDS)
     # st.write("Some wise words from Shakespeare:")
     query_job = client.query(query)
     st.write(client)
