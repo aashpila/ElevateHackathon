@@ -11,11 +11,13 @@ client = bigquery.Client.from_service_account_json(json_credentials_path=CREDS)
 # job = client.query(query)
 table_name='medadsquad.patient_reg_db.patient_info'
 def call_success_func():
-    insert_query = f""" INSERT INTO `{table_name}` (patient_name, medication , dosage , doctor ,interests ,
+    insert_query = f""" INSERT INTO '{table_name}' (patient_name, medication , dosage , doctor ,interests ,
       location ,ml_nonadhere_score , medication_time, contact ,seq_id , runstreak)
       VALUES ('{patient_name}', '{medication}', '{drug_str_uom}','{doctor}','{interests}','{location}','{ml_nonadhere_score}',
         '{medication_time}','{contact}','{streak_value}','{seq_id}')"""
     client.query(insert_query)
+    job=client.query("SELECT patient_name FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
+    st.write(job.result())
     st.success("Patient Registration Successful!!")
 
 #CREATING OUR FORM FIELDS
