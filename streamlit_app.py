@@ -25,9 +25,9 @@ with st.form("form1", clear_on_submit=True):
   doctor = st.text_input("Enter prescriber full name")
   medication_time = st.time_input('Enter medication time', value=None)
   frequency = st.multiselect("Enter medication frequency",freqlist)
-  interests = st.text_area("Enter patient's interests")
+  interests = st.text_area("Enter patients interests")
   location = st.text_input("Enter patient's city")
-  streak_value=st.number_input('Enter patient's streak value', min_value=0, max_value=10)
+  streak_value=st.number_input('Enter patients streak value', min_value=0, max_value=10)
   submit = st.form_submit_button("Submit Details", on_click=call_success_func)
   drug_str_uom=str(drugstr)+" "+str(druguom)
   insert_query = f""" INSERT INTO `{table_name}` (patient_name, medication , dosage , doctor ,interests ,
