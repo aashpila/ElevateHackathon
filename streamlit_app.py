@@ -50,7 +50,7 @@ if submit:
     # interests = st.session_state.interests
     # location = st.session_state.location
     # streak_value=st.session_state.streak_value
-    drug_str_uom=str(drugstr)+" "+str(druguom)
+    drug_str_uom=str(drugstr)
     insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name ,medication,dosage ) VALUES ('{patient_name}' ,'{medication}', '{drug_str_uom}')"""
     
     # insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name )
