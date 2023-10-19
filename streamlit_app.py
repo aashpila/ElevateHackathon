@@ -36,9 +36,11 @@ with st.form("form1", clear_on_submit=True):
   submit = st.form_submit_button("Submit Details", on_click=call_success_func)
 if submit:
     st.write(patient_name)
-    st.write(medication)
+    st.write(medication_time)
+    st.write(type(medication_time))
     drug_str_uom=str(drugstr) +" "+str(druguom[0])
     medication_time = medication_time.strftime('%H:%M')
+    st.write(type(medication_time))
     insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name , medication, dosage, doctor, interests,location, ml_nonadhere_score,medication_time)
         VALUES ('{patient_name}', '{medication}', '{drug_str_uom}', '{doctor}', '{interests}','{location}',
         '{ml_nonadhere_score}', '{medication_time}')"""
