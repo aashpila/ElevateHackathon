@@ -11,13 +11,7 @@ client = bigquery.Client.from_service_account_json(json_credentials_path=CREDS)
 # job = client.query(query)
 table_name='medadsquad.patient_reg_db.patient_info'
 def call_success_func():
-    st.write(table_name)
-    st.write(patient_name)
-    insert_query = f""" INSERT INTO '{table_name}' (patient_name, medication , dosage , doctor ,interests ,
-      location ,ml_nonadhere_score , medication_time, contact ,seq_id , runstreak)
-      VALUES ('{patient_name}', '{medication}', '{drug_str_uom}','{doctor}','{interests}','{location}','{ml_nonadhere_score}',
-        '{medication_time}','{contact}','{streak_value}','{seq_id}')"""
-    client.query(insert_query)
+    
     job=client.query("SELECT patient_name FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
     for row in job.result():
         st.write(row)
@@ -40,5 +34,25 @@ with st.form("form1", clear_on_submit=True):
   streak_value=st.number_input('Enter patients streak value', min_value=0, max_value=10)
   drug_str_uom=str(drugstr)+" "+str(druguom)
   submit = st.form_submit_button("Submit Details", on_click=call_success_func)
+if submit:
+    seq_id=st.session_state.seq_id
+    patient_name = st.session_state.patient_name
+    medication = st.session_state.medication
+    drugstr = st.session_state.drugstr
+    druguom = st.session_state.druguom
+    contact = st.session_state.contact
+    ml_nonadhere_score = st.session_state.ml_nonadhere_score
+    doctor = st.session_state.doctor
+    medication_time = st.session_state.medication_time
+    frequency = st.session_state.frequency
+    interests = st.session_state.interests
+    location = st.session_state.location
+    streak_value=st.session_state.streak_value
+    drug_str_uom=str(drugstr)+" "+str(druguom)
+    insert_query = f""" INSERT INTO 'medadsquad.patient_reg_db.patient_info' (patient_name ,medication ,dosage ,doctor ,interests ,location ,ml_nonadhere_score ,medication_time ,contact ,seq_id ,runstreak)
+    VALUES ('{patient_name}' ,'{medication}' ,'{drug_str_uom}' ,'{doctor}' ,'{interests}' ,'{location}' ,'{ml_nonadhere_score}' ,'{medication_time}' ,'{contact}' ,'{seq_id}' ,'{runstreak}' )"""
+    client.query(insert_query)
+    st.success("Form Submitted")
+
 
   
