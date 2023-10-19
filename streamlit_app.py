@@ -37,7 +37,7 @@ if form_visible:
       ml_nonadhere_score = st.number_input("Enter Patients Non Adherence Score", min_value=0.0, max_value=1.0,format="%.2f")
       doctor = st.text_input("Enter prescriber full name")
       medication_time = st.time_input('Enter medication time', value=None)
-      frequency = st.multiselect("Enter medication frequency",freqlist)
+      frequency = st.selectbox("Enter medication frequency",freqlist)
       interests = st.text_area("Enter patients interests")
       location = st.text_input("Enter patient's city")
       streak_value=st.number_input('Enter patients streak value', min_value=0, max_value=10)
