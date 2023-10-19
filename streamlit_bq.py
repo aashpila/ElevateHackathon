@@ -26,8 +26,9 @@ def run_query(query):
     
     rows_raw = query_job.result()
     # Convert to list of dicts. Required for st.cache_data to hash the return value.
-    rows = [dict(row) for row in rows_raw]
-    return rows
+    for row in job.result():
+        print(row)
+
 
 rows = run_query("SELECT patient_name FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
 
