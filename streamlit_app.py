@@ -14,7 +14,7 @@ table_name='medadsquad.patient_reg_db.patient_info'
 def call_success_func():
     st.success("Patient Registration Successful!!")
 
-def run_query(query):
+def run_query():
     job = client.query("SELECT patient_name FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
     df=job.result().to_dataframe()
     st.table(df)
