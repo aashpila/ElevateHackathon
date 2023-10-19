@@ -17,7 +17,8 @@ def call_success_func():
         '{medication_time}','{contact}','{streak_value}','{seq_id}')"""
     client.query(insert_query)
     job=client.query("SELECT patient_name FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
-    st.write(job.result())
+    for row in job.result():
+        st.write(row)
     st.success("Patient Registration Successful!!")
 
 #CREATING OUR FORM FIELDS
