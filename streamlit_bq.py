@@ -24,7 +24,7 @@ def run_query(query):
 
     # st.write("Some wise words from Shakespeare:")
     for row in job.result():
-        print(row)
+        st.write(row)
 
 
 rows = run_query("SELECT patient_name FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
