@@ -27,7 +27,7 @@ with st.form("form1", clear_on_submit=True):
   contact = st.number_input('Enter contact number', min_value=1000000000, max_value=9999999999)
   ml_nonadhere_score = st.number_input("Enter Patients Non Adherence Score", min_value=0.0, max_value=1.0,format="%.2f")
   doctor = st.text_input("Enter prescriber full name")
-  medication_time = st.time_input('Enter medication time', value=None).time()
+  medication_time = st.time_input('Enter medication time', value=None)
   frequency = st.multiselect("Enter medication frequency",freqlist)
   interests = st.text_area("Enter patients interests")
   location = st.text_input("Enter patient's city")
@@ -37,10 +37,11 @@ with st.form("form1", clear_on_submit=True):
 if submit:
     st.write(patient_name)
     st.write(medication_time)
-    st.write(type(medication_time))
+    # st.write(type(medication_time))
     drug_str_uom=str(drugstr) +" "+str(druguom[0])
     medication_time = medication_time.strftime('%H:%M')
-    st.write(type(medication_time))
+    medication_time=str(medication_time)
+    # st.write(type(medication_time))
     insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name , medication, dosage, doctor, interests,location, ml_nonadhere_score,medication_time)
         VALUES ('{patient_name}', '{medication}', '{drug_str_uom}', '{doctor}', '{interests}','{location}',
         '{ml_nonadhere_score}', '{medication_time}')"""
