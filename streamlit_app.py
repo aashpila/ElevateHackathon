@@ -15,12 +15,13 @@ def call_success_func():
     st.success("Patient Registration Successful!!")
 
 def run_query():
+    st.session_state["form_visible"]=False
     job = client.query("SELECT * FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
     df=job.to_dataframe()
     
     st.table(df)
   
-
+form_visible=st.session_state.get("form_visible",True)
 
 #CREATING OUR FORM FIELDS
 with st.form("form1", clear_on_submit=True):
