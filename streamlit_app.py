@@ -26,21 +26,9 @@ with st.form("form1", clear_on_submit=True):
   seq_id=st.number_input('Enter contact number', min_value=0, max_value=1000)
   submit = st.form_submit_button("Submit Details")
   drug_str_uom=str(drugstr)+" "+str(druguom)
- insert_query = f"""
-        INSERT INTO `{table_name}` (patient_name,
-  medication ,
-  dosage ,
-  doctor ,
-  interests ,
-  location ,
-  ml_nonadhere_score ,
-  medication_time,
-  contact ,
-  seq_id ,
-  runstreak)
-        VALUES ('{patient_name}', '{medication}', '{drug_str_uom}','{doctor}','{interests}','{location}','{ml_nonadhere_score}',
-        '{medication_time}','{contact}','{streak_value}','{seq_id}'  
-        )
-    """
-    client.query(insert_query)
-    st.success("Patient Registraion Successful!!")
+  insert_query = f""" INSERT INTO `{table_name}` (patient_name, medication , dosage , doctor ,interests ,
+  location ,ml_nonadhere_score , medication_time, contact ,seq_id , runstreak)
+  VALUES ('{patient_name}', '{medication}', '{drug_str_uom}','{doctor}','{interests}','{location}','{ml_nonadhere_score}',
+        '{medication_time}','{contact}','{streak_value}','{seq_id}')"""
+  client.query(insert_query)
+  st.success("Patient Registraion Successful!!")
