@@ -16,7 +16,7 @@ def call_success_func():
 def run_query():
     st.session_state["form_visible"]=False
     st.subheader("Patients Details")
-    job = client.query("SELECT * FROM `medadsquad.patient_reg_db.patient_info` LIMIT 100")
+    job = client.query("SELECT * FROM `hackathon101423.hackathon_data.patient_info` LIMIT 100")
     df=job.to_dataframe()
     
     st.table(df)
@@ -56,7 +56,7 @@ if form_visible:
         medication_time = datetime.time(int(medication_time_hr),int(medication_time_min),0).strftime('%H:%M:%S')
         # medication_time=str(medication_time)
         # st.write(type(medication_time))
-        insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name , medication, dosage, doctor, interests,location, ml_nonadhere_score,medication_time,contact,seq_id, runstreak)
+        insert_query = f""" INSERT INTO `hackathon101423.hackathon_data.patient_info` (patient_name , medication, dosage, doctor, interests,location, ml_nonadhere_score,medication_time,contact,seq_id, runstreak)
             VALUES ('{patient_name}', '{medication}', '{drug_str_uom}', '{doctor}', '{interests}','{location}',
             '{ml_nonadhere_score}', '{medication_time}','{contact}', '{seq_id}', '{streak_value}')"""
         
