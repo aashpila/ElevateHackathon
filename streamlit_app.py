@@ -6,7 +6,7 @@ druguomlist=['ML','MG','MCG','UNIT/ML']
 freqlist=['Daily Once','Twice a day','Three times a day']
 
 
-CREDS = r'medadsquad-8740fa9fa089.json'
+CREDS = r'hackathon101423-51887557308b.json'
 client = bigquery.Client.from_service_account_json(json_credentials_path=CREDS)
 # job = client.query(query)
 table_name='medadsquad.patient_reg_db.patient_info'
