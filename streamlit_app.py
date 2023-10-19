@@ -24,7 +24,7 @@ def run_query():
 form_visible=st.session_state.get("form_visible",True)
 
 #CREATING OUR FORM FIELDS
-if form_vivible:
+if form_visible:
     with st.form("form1", clear_on_submit=True):
       seq_id=st.number_input('Enter Patient ID', min_value=0, max_value=1000)
       patient_name = st.text_input("Enter patient full name")
