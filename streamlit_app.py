@@ -9,7 +9,7 @@ freqlist=['Daily Once','Twice a day','Three times a day']
 CREDS = r'hackathon101423-51887557308b.json'
 client = bigquery.Client.from_service_account_json(json_credentials_path=CREDS)
 # job = client.query(query)
-table_name='medadsquad.patient_reg_db.patient_info'
+table_name='hackathon101423.hackathon_data.patient_info'
 def call_success_func():
     st.success("Patient Registration Successful!!")
 
