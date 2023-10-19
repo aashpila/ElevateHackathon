@@ -1,6 +1,7 @@
 import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
+import datetime
 druguomlist=['ML','MG','MCG','UNIT/ML']
 freqlist=['Daily Once','Twice a day','Three times a day']
 
@@ -39,7 +40,14 @@ if submit:
     st.write(medication_time)
     # st.write(type(medication_time))
     drug_str_uom=str(drugstr) +" "+str(druguom[0])
-    medication_time = medication_time.strftime('%H:%M')
+    
+    medication_time_hr=  str(medication_time).split(":")[0]
+    medication_time_min=  str(medication_time).split(":")[1]
+    st.write((medication_time_hr))
+    st.write((medication_time_min))
+
+    
+    medication_time = datetime.time(medication_time_hr,medication_time_min).strftime('%H:%M')
     medication_time=str(medication_time)
     # st.write(type(medication_time))
     insert_query = f""" INSERT INTO `medadsquad.patient_reg_db.patient_info` (patient_name , medication, dosage, doctor, interests,location, ml_nonadhere_score,medication_time)
