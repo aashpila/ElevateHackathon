@@ -21,10 +21,11 @@ def run_query(query):
     CREDS = r'medadsquad-8740fa9fa089.json'
     client = bigquery.Client.from_service_account_json(json_credentials_path=CREDS)
     job = client.query(query)
-
-    # st.write("Some wise words from Shakespeare:")
-    for row in job.result():
-        st.write(row)
+    df=job.result().to_dataframe()
+    st.table(df)
+    # # st.write("Some wise words from Shakespeare:")
+    # for row in job.result():
+    #     st.write(row)
 
 
 rows = run_query("SELECT patient_name FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
