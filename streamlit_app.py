@@ -33,7 +33,7 @@ if form_visible:
       medication = st.text_input("Enter medication name")
       drugstr = st.text_input("Enter medication strength")
       druguom = st.selectbox("Enter medication UOM",druguomlist)
-      contact = st.number_input('Enter contact number', min_value=1000000000, max_value=9999999999)
+      contact = st.number_input('Enter contact number', min_value=0000000000, max_value=9999999999)
       ml_nonadhere_score = st.number_input("Enter Patients Non Adherence Score", min_value=0.0, max_value=1.0,format="%.2f")
       doctor = st.text_input("Enter prescriber full name")
       medication_time = st.time_input('Enter medication time', value=None)
