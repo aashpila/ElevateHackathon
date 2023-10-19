@@ -20,12 +20,9 @@ def run_query(query):
     st.write(os.getcwd())
     CREDS = r'medadsquad-8740fa9fa089.json'
     client = bigquery.Client.from_service_account_json(json_credentials_path=CREDS)
+    job = client.query(query)
+
     # st.write("Some wise words from Shakespeare:")
-    query_job = client.query(query)
-    st.write(client)
-    
-    rows_raw = query_job.result()
-    # Convert to list of dicts. Required for st.cache_data to hash the return value.
     for row in job.result():
         print(row)
 
@@ -33,6 +30,6 @@ def run_query(query):
 rows = run_query("SELECT patient_name FROM `medadsquad.patient_reg_db.patient_info` LIMIT 10")
 
 # Print results.
-st.write("Some wise words from Shakespeare:")
-for row in rows:
-    st.write(" " + row['word'])
+# st.write("Some wise words from Shakespeare:")
+# for row in rows:
+#     st.write(" " + row['word'])
