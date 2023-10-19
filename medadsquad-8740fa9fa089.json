@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "medadsquad",
+  "private_key_id": "8740fa9fa089339d5756b34119133371c74c355f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCkeWWYygr+Ow+R\nk9TEwVJYSi8Vakou8i7k5thVIv8NSJuU3FISo+33+mPfyiuR+bqKwBMZH6iUdk8N\nU00MOkVCdCrQ94Bnj/BA6pJ3rMn0zg1PfLoz0fI6CJrY4hemPgIBKyqwag3wY+xb\nHWzhuxymcRcXmhibncxjZJnUgP4NnchIaVJQfnUKzUb621QI0Ymez/UprlcPT2kC\nOvwt1lUTp/IJqEAko1nQOxxG0XV+tmQ9tDxkOU+fyT2vCg0yWeW07nutOY/JmWkS\npU2UFaRKABDIGcNbulTBJLoAyJ4AGjKV3yob6Ob4rKg33pcMSiXIAfihjq1pPgg2\nmnE1L2w3AgMBAAECggEAE48SK2C/fOsmF1BGqZ05vyEXR0ssBjgrpnHjQQCX5wr+\n4W1v3yKabnZawSaoFsRlUBG2U7MFl54YGYQR8gXN7bCl1NLR9L7TucyLXWrxW0jT\noWO6OuZZEVirnWYJnO3bzCrHeVIrVS500YMGyzM2nX5uWhKroXna7+jrOC+cxp6P\nSzzmOKAilXHyQdIZ643swJdAOeAg5EiEBFQxb+EWMRec14t9/tMfawv/36JPG+Cs\nQs+qUj/5IxNQcDi8x6Ucldxp5gNSZ1NdHVokI9qWhqXzCjv4+G5mMyee/ER9p0cd\nBHWmhcdN3HxvAv0TkqnS/hZDx9Uw0b6zb8EdItpvdQKBgQDhCmiabB6FDY0VIfgJ\nDxsoU1dPXjgkezER1lIraITr2ETRUXGJ2EDV9VCQGCGGhcqIRurJp0ZsQx/IYK26\nhWQmly83rSvDa72c8mZ/Ve4/L+EG3DVzqkKqhf/snjlNQH42ZH1CaW5ciWE1GD/n\n4p4I8Edrc3FAihRjQixQ9N3MfQKBgQC7Ge3ydYSSiM3UAip3YXN93ziRQry2lKne\nVEn8vDwbXDVsEUUQt9v2TtsDXdWaHsC5tEW5TFH0IRPV7U5HyliP1SMMifmVStS0\nRXQeNgyk7yP+G0p6WXB7v98cY0iDr8z8BrlUjrJUC6hLWOdXe+Cl0kBHkn/AHEJS\n1ijBPWSdwwKBgQClpXO5tzv/1Cm1FHvurx/eXvo1gbTxpXxJFOkG6rhsoZSGPtzE\nClovI5NZfWmwC2s5RHouVOKRbhdG92LpmKZPgZlP8jf0cKnxjLvFnwrvl96bnhv6\nN6k6u8fV8+FZ6877WpyY9eI2WykiW+cuWLDbA4KOpTsHtpurNFpKfPOGQQKBgB+X\nn0ADa+E6TFbyDq2dvNySJoEQncDOlWg/H0cXmaadCUA4IktSYEfUxNJqs7iUXMJ+\nmA9TvbrVIv5KVZ91oUKYIJTrb0MwIX5XA+ZeBgCLiK5NeWPzWjTrDwdCFGp38srT\nb9PBTIc4eLBQUK/K8QHO4J+1MvEDVIecNcF7VlP1AoGAEkWBaSETRlAcipSPWayp\nXhO5vkZwpCkruO/J/pJR7H6G4PgttWZXC+ylWJCDC8sR8an5wVE4oSn2f3cdM62C\nSGq0cLuMMoATYON5P+6sBtZJ0shWWyy2Yet7g4qKdDon4vJUl4WXguLNwbhh2SOb\nLUBSr7RK00TRILwDtdzcSZ0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "medadsquad-seracc@medadsquad.iam.gserviceaccount.com",
+  "client_id": "107865383026948949438",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/medadsquad-seracc%40medadsquad.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
