@@ -28,19 +28,21 @@ if form_visible:
     with st.form("form1", clear_on_submit=True):
       st.title("Patient Registration")
       st.subheader("Enter patient's details below")
-      seq_id=st.number_input('Enter Patient ID', min_value=0, max_value=1000)
+      # seq_id=st.number_input('Enter Patient ID', min_value=0, max_value=1000)
       patient_name = st.text_input("Enter patient full name")
+      patient_mobile = st.number_input('Enter contact name', min_value=0000000000, max_value=9999999999)
+      patient_country = st.text_input("Enter Country")
       medication = st.text_input("Enter medication name")
       drugstr = st.text_input("Enter medication strength")
       druguom = st.selectbox("Enter medication UOM",druguomlist)
-      contact = st.number_input('Enter contact number', min_value=0000000000, max_value=9999999999)
-      ml_nonadhere_score = st.number_input("Enter Patients Non Adherence Score", min_value=0.0, max_value=1.0,format="%.2f")
       doctor = st.text_input("Enter prescriber full name")
-      medication_time = st.time_input('Enter medication time', value=None)
-      frequency = st.selectbox("Enter medication frequency",freqlist)
       interests = st.text_area("Enter patients interests")
-      location = st.text_input("Enter patient's city")
+      location = st.text_input("Enter patient's city")  
+      ml_nonadhere_score = st.number_input("Enter Patients Non Adherence Score", min_value=0.0, max_value=1.0,format="%.2f")
+      medication_time = st.time_input('Enter medication time', value=None)
+      Relation_contact_name = st.text_input("Enter Relation contact full name")
       streak_value=st.number_input('Enter patients streak value', min_value=0, max_value=10)
+      frequency = st.selectbox("Enter medication instructions ",freqlist)
       drug_str_uom=str(drugstr)+" "+str(druguom)
       submit = st.form_submit_button("Submit Details", on_click=call_success_func)
     if submit:
@@ -54,11 +56,12 @@ if form_visible:
     
         
         medication_time = datetime.time(int(medication_time_hr),int(medication_time_min),0).strftime('%H:%M:%S')
+        insert_time=datetime.datetime.now()
         # medication_time=str(medication_time)
         # st.write(type(medication_time))
-        insert_query = f""" INSERT INTO `hackathon101423.hackathon_data.patient_info` (patient_name , medication, dosage, doctor, interests,location, ml_nonadhere_score,medication_time,contact,seq_id, runstreak)
-            VALUES ('{patient_name}', '{medication}', '{drug_str_uom}', '{doctor}', '{interests}','{location}',
-            '{ml_nonadhere_score}', '{medication_time}','{contact}', '{seq_id}', '{streak_value}')"""
+        insert_query = f""" INSERT INTO `hackathon101423.hackathon_data.patient_info` (patient_name ,patient_mobile,country, medication, dosage, doctor, interests,location, ml_nonadherence_score,medication_time,contact, runstreak,instructions,insert_time)
+            VALUES ('{patient_name}','{patient_mobile}','{patient_country}', '{medication}', '{drug_str_uom}', '{doctor}', '{interests}','{location}',
+            '{ml_nonadhere_score}', '{medication_time}','{Relation_contact_name}', '{streak_value}','{insert_time}' )"""
         
         client.query(insert_query)
             
