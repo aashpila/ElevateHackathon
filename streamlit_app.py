@@ -14,7 +14,7 @@ def call_success_func():
     st.success("Patient Registration Successful!!")
 
 #CREATING OUR FORM FIELDS
-with st.form("form1", clear_on_submit=True, on_click=call_success_func):
+with st.form("form1", clear_on_submit=True):
   patient_name = st.text_input("Enter patient full name")
   medication = st.text_input("Enter medication name")
   drugstr = st.slider("Enter medication strength", min_value = 1, max_value = 1000)
@@ -28,7 +28,7 @@ with st.form("form1", clear_on_submit=True, on_click=call_success_func):
   location = st.text_input("Enter patient's city")
   streak_value=st.number_input('Enter contact number', min_value=0, max_value=10)
   seq_id=st.number_input('Enter contact number', min_value=0, max_value=1000)
-  submit = st.form_submit_button("Submit Details")
+  submit = st.form_submit_button("Submit Details", on_click=call_success_func)
   drug_str_uom=str(drugstr)+" "+str(druguom)
   insert_query = f""" INSERT INTO `{table_name}` (patient_name, medication , dosage , doctor ,interests ,
   location ,ml_nonadhere_score , medication_time, contact ,seq_id , runstreak)
