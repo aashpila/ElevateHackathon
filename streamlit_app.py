@@ -59,10 +59,13 @@ if form_visible:
         insert_time=datetime.datetime.now()
         # medication_time=str(medication_time)
         # st.write(type(medication_time))
-        insert_query = f""" INSERT INTO `hackathon101423.hackathon_data.patient_info` (patient_name ,patient_mobile,country, medication, dosage, doctor, interests,location, ml_nonadherence_score,medication_time,contact, instructions,insert_time)
-            VALUES ('{patient_name}','{patient_mobile}','{patient_country}', '{medication}', '{drug_str_uom}', '{doctor}', '{interests}','{location}',
-            '{ml_nonadhere_score}', '{medication_time}','{Relation_contact_name}', '{insert_time}' )"""
-        
+        insert_query = f""" INSERT INTO `hackathon101423.hackathon_data.patient_info`
+(patient_name ,patient_mobile, country, medication,dosage, doctor ,interests,location,ml_nonadherence_score,medication_time,contact,insert_time,instructions)
+VALUES ('{patient_name}','{patient_mobile}','{patient_country}', '{medication}','{drug_str_uom}', '{doctor}','{interests}','{location}',
+'{ml_nonadhere_score}','{medication_time}','{Relation_contact_name}','{insert_time}', '{frequency}'
+
+)"""
+
         client.query(insert_query)
             
         st.success("Form Submitted")
